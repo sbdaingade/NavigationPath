@@ -6,6 +6,7 @@
 //
 import Combine
 import Foundation
+import SwiftUI
 
 public final class NavigationManager: ObservableObject {
     @Published var path = NavigationPath()
@@ -38,7 +39,7 @@ public final class NavigationManager: ObservableObject {
     }
     
     public func navigateTo(_ identifier: String) {
-        guard let viewIndex = indexForView(identifier) else {
+        guard let viewIndex = indexForView(withID: identifier) else {
         debugPrint("identifier \(identifier) not found. you are trying to navigate to a view that is not in the stack")
             return
         }
@@ -47,7 +48,6 @@ public final class NavigationManager: ObservableObject {
     }
     
     func indexForView(withID identifier: String) -> Int? {
-        pathID.first(where: { $0 == identifier })
+        pathID.firstIndex { $0 == identifier }
     }
 }
-

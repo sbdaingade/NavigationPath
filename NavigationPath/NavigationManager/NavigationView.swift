@@ -27,7 +27,7 @@ struct NavigationView<Content: View>: View, Hashable {
     let content: Content
     
     init(@ViewBuilder content: () -> Content, backButtonVisible: Bool = true, showConfirmation: Bool = false) {
-        content = content()
+        self.content = content()
         self.backButtonVisible = backButtonVisible
         self.showConfiramation = showConfirmation
     }

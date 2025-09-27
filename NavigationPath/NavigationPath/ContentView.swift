@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var navigationManager = NavigationManager.shared
     var body: some View {
         VStack {
             Image(systemName: "globe")
