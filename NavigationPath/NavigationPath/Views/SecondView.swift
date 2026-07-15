@@ -27,13 +27,7 @@ struct SecondView: View {
         }
         .navigationTitle("First View")
         .environmentObject(navigationManager)
-//        .toolbar {
-//            ToolbarItem(placement: .topBarLeading) {
-//                BackButton {
-//                    dismiss()
-//                }
-//            }
-//        }
+
     }
 }
 

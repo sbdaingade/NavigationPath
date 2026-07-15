@@ -30,12 +30,17 @@ public final class NavigationManager: ObservableObject {
         clickedBackButton = false
     }
     func navigateToBack() {
-        path.removeLast()
-        pathID.removeLast()
+        if !path.isEmpty {
+            path.removeLast()
+        }
+        if !pathID.isEmpty {
+            pathID.removeLast()
+        }
     }
     
     func popToRoot() {
         path = NavigationPath()
+        pathID = []
     }
     
     public func navigateTo(_ identifier: String) {
@@ -50,4 +55,16 @@ public final class NavigationManager: ObservableObject {
     func indexForView(withID identifier: String) -> Int? {
         pathID.firstIndex { $0 == identifier }
     }
+}
+
+
+public enum ModalPresentationStyle {
+    case sheet
+    case fullScreen
+}
+
+struct PresentedModal: Identifiable {
+    var id: UUID = UUID()
+    var view: AnyView
+    let style: ModalPresentationStyle
 }

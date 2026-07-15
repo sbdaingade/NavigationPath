@@ -10,8 +10,7 @@ import SwiftUI
 
 struct FirstView: View {
     @StateObject var navigationManager = NavigationManager.shared
-    @Environment(\.dismiss) var dismiss
-    let numberOfCircles: Int = 20
+    let numberOfCircles: Int = 20_0000_000
     let radius: CGFloat = 100 // Distance from the center
     let circleSize: CGFloat = 10
     var body: some View {
@@ -28,13 +27,7 @@ struct FirstView: View {
         }
         .navigationTitle("First View")
         .environmentObject(navigationManager)
-//        .toolbar {
-//            ToolbarItem(placement: .topBarLeading) {
-//                BackButton {
-//                    dismiss()
-//                }
-//            }
-//        }
+
     }
 }
 #Preview {
