@@ -33,17 +33,17 @@ struct NavigationView<Content: View>: View, Hashable {
     }
     
     var body: some View {
-        if backButtonVisible {
+        ZStack {
             content
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden(true)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        backButtonContent()
-                    }
-                }
-        } else {
+                .edgesIgnoringSafeArea(.all)
             
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                backButtonContent()
+            }
         }
     }
     

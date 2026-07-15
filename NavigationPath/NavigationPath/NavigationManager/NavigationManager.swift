@@ -13,10 +13,10 @@ public final class NavigationManager: ObservableObject {
     @Published var clickedBackButton: Bool = false
     var pathID: [String] = []
     var backButtonVisible: Bool = false
-    public static let shared: NavigationManager = NavigationManager()
+    public static let shared = NavigationManager()
     
-    public func navigate(_ page: some View, backButtonVisible: Bool = true, showConfirmation: Bool = false) {
-        pathID.append("\(type(of: page))")
+    public func navigate(_ page: some View, pageID: String, backButtonVisible: Bool = true, showConfirmation: Bool = false) {
+        pathID.append(pageID)
         path.append(NavigationView(content: {
             AnyView(page)
         }, backButtonVisible: backButtonVisible, showConfirmation: showConfirmation))

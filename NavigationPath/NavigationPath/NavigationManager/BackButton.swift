@@ -12,6 +12,7 @@ struct BackButton: View {
     
     var body: some View {
         Button(action: {
+            action()
         }) {
             Text("Back")
         }

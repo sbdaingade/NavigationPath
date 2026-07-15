@@ -10,13 +10,25 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager.shared
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack(path: $navigationManager.path) {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+                
+                Button("Go to Settings") {
+                   // navigationManager.navigate(SecondView(),backButtonVisible: true)
+                    navigationManager.navigate(SecondView(), pageID: String(describing: SecondView.self),backButtonVisible: true)
+                }
+            }
+            .padding()
+            .navigationTitle("Home")
+            .navigationDestination(for: NavigationView<AnyView>.self) { destination in
+                destination
+            }
         }
-        .padding()
+        .environmentObject(navigationManager)
     }
 }
 

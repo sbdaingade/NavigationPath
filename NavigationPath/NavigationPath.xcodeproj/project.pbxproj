@@ -6,17 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		4ABA33662E8079F400F4A002 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA33632E80653000F4A002 /* NavigationManager.swift */; };
-		4ABA33672E8079FA00F4A002 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA33642E80706200F4A002 /* BackButton.swift */; };
-		4ABA33682E8079FE00F4A002 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA33652E8070AB00F4A002 /* NavigationView.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		4ABA33542E80635700F4A002 /* NavigationPath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ABA33632E80653000F4A002 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
-		4ABA33642E80706200F4A002 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		4ABA33652E8070AB00F4A002 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,7 +32,6 @@
 		4ABA334B2E80635700F4A002 = {
 			isa = PBXGroup;
 			children = (
-				4ABA33622E80648000F4A002 /* NavigationManager */,
 				4ABA33562E80635700F4A002 /* NavigationPath */,
 				4ABA33552E80635700F4A002 /* Products */,
 			);
@@ -53,16 +43,6 @@
 				4ABA33542E80635700F4A002 /* NavigationPath.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		4ABA33622E80648000F4A002 /* NavigationManager */ = {
-			isa = PBXGroup;
-			children = (
-				4ABA33652E8070AB00F4A002 /* NavigationView.swift */,
-				4ABA33642E80706200F4A002 /* BackButton.swift */,
-				4ABA33632E80653000F4A002 /* NavigationManager.swift */,
-			);
-			path = NavigationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ABA33672E8079FA00F4A002 /* BackButton.swift in Sources */,
-				4ABA33682E8079FE00F4A002 /* NavigationView.swift in Sources */,
-				4ABA33662E8079F400F4A002 /* NavigationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
