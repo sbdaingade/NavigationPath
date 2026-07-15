@@ -11,9 +11,12 @@ import SwiftUI
 public final class NavigationManager: ObservableObject {
     @Published var path = NavigationPath()
     @Published var clickedBackButton: Bool = false
+    @Published var presentedModal: PresentedModal?
+    @Published var showModalNavigationBar: Bool = false
+    public static let shared = NavigationManager()
+    
     var pathID: [String] = []
     var backButtonVisible: Bool = false
-    public static let shared = NavigationManager()
     
     public func navigate(_ page: some View, pageID: String, backButtonVisible: Bool = true, showConfirmation: Bool = false) {
         pathID.append(pageID)
@@ -45,7 +48,7 @@ public final class NavigationManager: ObservableObject {
     
     public func navigateTo(_ identifier: String) {
         guard let viewIndex = indexForView(withID: identifier) else {
-        debugPrint("identifier \(identifier) not found. you are trying to navigate to a view that is not in the stack")
+            debugPrint("identifier \(identifier) not found. you are trying to navigate to a view that is not in the stack")
             return
         }
         pathID.removeLast(pathID.count - (viewIndex + 1))
@@ -54,6 +57,18 @@ public final class NavigationManager: ObservableObject {
     
     func indexForView(withID identifier: String) -> Int? {
         pathID.firstIndex { $0 == identifier }
+    }
+    func isViewInStack(identifier: String) -> Bool {
+        indexForView(withID: identifier) != nil
+    }
+    
+    public func present<Content: View>(style: ModalPresentationStyle = .sheet, showNavigationBar: Bool = true, @ViewBuilder content: () -> Content) {
+        showModalNavigationBar = showNavigationBar
+        presentedModal = PresentedModal(view: AnyView(content()), style: style)
+    }
+    
+    public func dismissModal() {
+        presentedModal = nil
     }
 }
 
